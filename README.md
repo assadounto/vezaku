@@ -24,3 +24,7 @@ Visit http://localhost:3000.
 
 ## Next steps
 Integrate Xonbay storefront product and order APIs where appropriate. Build separate lesson access, enrollment, course progress, creator publishing and protected-download entitlement controls before accepting real purchases.
+
+## Optional cinematic homepage hero video
+
+The homepage now uses a rich violet hero with its existing SVG illustration by default. To enable a background video, place an optimized, silent MP4 at `public/videos/vezaku-hero.mp4` and set `NEXT_PUBLIC_VEZAKU_HERO_VIDEO_URL=/videos/vezaku-hero.mp4` in `.env.local` (or the production environment). The video is muted, loops, plays inline and is behind a contrast overlay; users preferring reduced motion see a still background. Without that environment variable, no video is requested. This repository does not yet include an actual MP4. Prefer short, compressed, cinematic footage without text overlays.
