@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {ArrowRight,BookOpen,Box,Download,GraduationCap,Play,ShoppingBag,Sparkles,Code2,Layers,Clock3,CheckCircle2} from 'lucide-react';
+import {ArrowRight,BookOpen,Box,Download,GraduationCap,Play,ShoppingBag,Sparkles,ShieldCheck,Code2,Layers,Clock3,CheckCircle2} from 'lucide-react';
 const courses=[
  {slug:'python-for-builders',title:'Python Programming: From Zero to Builder',topic:'Development',level:'Beginner',price:'GH₵ 249',img:'/images/course-python.svg',rating:'4.9',lessons:'32 lessons'},
  {slug:'full-stack-development',title:'Modern Full-Stack Web Development',topic:'Development',level:'Intermediate',price:'GH₵ 499',img:'/images/course-web.svg',rating:'4.8',lessons:'46 lessons'},
