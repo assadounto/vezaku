@@ -212,3 +212,33 @@
 .dash-quick svg:first-child{color:#6153e9}.dash-quick svg:last-child{margin-left:auto;width:17px}
 @media(max-width:1000px){.dash{grid-template-columns:215px minmax(0,1fr)}.dash-content{padding:27px 20px}.dash-two-col{grid-template-columns:1fr}}
 @media(max-width:720px){.dash{display:block}.dash-sidebar{display:none}.dash-header{height:75px;padding:0 19px}.dash-header .eyebrow{font-size:8px}.dash-header strong{font-size:16px}.dash-explore{padding:9px 11px;font-size:11px}.dash-mobile-menu{display:block;position:relative}.dash-mobile-menu summary{cursor:pointer;list-style:none;background:#f0efff;border-radius:8px;padding:10px;font-size:12px;font-weight:750;color:#5142d9}.dash-mobile-menu nav{position:absolute;left:0;top:42px;z-index:100;display:flex;min-width:200px;flex-direction:column;gap:10px;background:#fff;border:1px solid #e8eaf2;border-radius:12px;padding:17px;box-shadow:0 16px 33px #0002}.dash-mobile-menu nav a,.dash-mobile-menu nav button{font:inherit;font-size:13px;color:#252a43}.dash-content{padding:22px 17px 60px}.dash-welcome{padding:27px}.dash-welcome>svg{display:none}.dash-stats{grid-template-columns:1fr;gap:10px}.dash-stats>div{display:grid;grid-template-columns:25px 1fr auto;align-items:center;gap:10px;padding:16px}.dash-stats strong{font-size:21px}}
+
+
+/* VEZAKU course player */
+.dash-course{display:flex;align-items:center;gap:18px;padding:23px 4px;border-bottom:1px solid #e9eaf2;color:#282944}
+.dash-course>svg:first-child{color:#6e5be9;flex-shrink:0}.dash-course>span{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.dash-course strong{font-size:15px}.dash-course small{font-size:12px;color:#77798a}
+.dash-course>svg:last-child{color:#7365d8;flex-shrink:0}
+.player-top{padding:17px 0 26px}.player-top h1{font-size:clamp(26px,3vw,38px);letter-spacing:-1px;line-height:1.2;margin:11px 0}
+.player-top p{color:#777b8c;font-size:13px}.player-meter{display:block;height:7px;max-width:420px;width:100%;background:#e6e3f4;border-radius:50px;overflow:hidden}
+.player-meter>span{display:block;height:100%;background:#7362ed;border-radius:50px;transition:width .25s}
+.player-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;align-items:start;gap:23px}
+.player-stage,.player-curriculum{background:#fff;border:1px solid #e9eaf1;border-radius:17px;overflow:hidden}
+.player-visual,.player-placeholder{height:270px;background:#18172e;color:#e7e1ff;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px;font-size:13px}
+.player-visual svg{color:#ad9fff}.player-placeholder svg{color:#ad9fff}
+.player-lesson-content{padding:30px}.player-lesson-content h2{font-size:28px;letter-spacing:-.75px;margin:12px 0 18px}
+.player-text{white-space:pre-wrap;font-size:15px;line-height:1.85;color:#4d5165;overflow-wrap:anywhere}
+.player-hint{font-size:12px;color:#6d6d85;background:#f3f2fd;border-radius:9px;padding:12px 14px;line-height:1.6;margin-top:16px}
+.player-actions{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-top:30px;border-top:1px solid #eef0f5;padding-top:24px}
+.player-actions .btn{border:0;cursor:pointer;font-family:inherit;font-size:12px}
+.player-actions>div{display:flex;gap:8px}
+.player-actions>div button{border:1px solid #e2e4ed;border-radius:9px;background:#fff;color:#45405f;cursor:pointer;padding:10px}
+.player-actions button:disabled{opacity:.4;cursor:not-allowed}
+.player-curriculum h3{display:flex;align-items:center;gap:10px;font-size:15px;padding:22px;border-bottom:1px solid #edeef4;margin:0}
+.player-curriculum h3 svg{color:#6d5ce6}.player-module{padding:16px;border-bottom:1px solid #edf0f5}
+.player-module>strong{display:block;font-size:13px;margin:0 0 11px;color:#22223c}
+.player-module button{width:100%;display:flex;align-items:center;text-align:left;gap:11px;background:transparent;border:0;border-radius:8px;padding:11px 10px;font:inherit;font-size:12px;line-height:1.45;color:#64677a;cursor:pointer}
+.player-module button.active{background:#f0efff;color:#5145c8;font-weight:700}
+.player-module button svg{color:#7e70dc;flex-shrink:0}
+@media(max-width:1000px){.player-layout{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.player-visual,.player-placeholder{height:200px}.player-lesson-content{padding:20px}.player-lesson-content h2{font-size:24px}.player-actions{flex-direction:column;align-items:stretch}.player-actions>div{justify-content:space-between}.player-actions>div button{flex:1}}
