@@ -34,3 +34,14 @@ The homepage now uses a rich violet hero with its existing SVG illustration by d
 VEZAKU reuses existing Xonbay Rails API accounts; it does not create its own user database. Implemented `/login`, `/signup`, `/dashboard`, `/dashboard/learning`, `/dashboard/projects` and `/dashboard/library`. The Next.js authentication handlers call `POST /v1/users/login`, `POST /v1/users/signup`, and `DELETE /v1/users/logout`, storing the access token in an HttpOnly SameSite=Lax cookie scoped to VEZAKU. Server-rendered dashboard pages call `GET /v1/digital_purchases` and `GET /v1/digital_downloads` using that token. Configure `XONBAY_API_URL=https://api.xonbay.com` as a **server-side** environment variable when deploying.
 
 **Integration limits:** These pages use the same Xonbay identity but are not yet cross-domain SSO; an existing login at account.xonbay.com does not automatically establish a VEZAKU session. The projects page is a placeholder until type-specific entitlements and access links are integrated. Course player, lesson completion and protected file-download actions are not connected yet. This is not a replacement for authentication review or production testing. Never expose Xonbay bearer tokens to browser JavaScript or public environment variables.
+
+## VEZAKU official shop source
+
+The Xonbay backend `dev` branch includes `bin/rails vezaku:seed`. After an operator runs that task on the intended database, copy the emitted shop ID to the VEZAKU server environment:
+
+```env
+XONBAY_API_URL=https://api.xonbay.com
+VEZAKU_SHOP_ID=<shop_id_from_seed_output>
+```
+
+The helper `lib/vezaku-digital-listings.ts` requests `/v1/public_digital_listings?shop_id=<id>` and rechecks the response belongs to subdomain `vezaku`. It returns no listings if the shop ID is absent, rather than accidentally displaying other shops. **The site's existing sample catalogue is not yet replaced with this helper.** Connecting the real catalogue and detail pages is the next integration step.
