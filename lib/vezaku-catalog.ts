@@ -3,6 +3,7 @@ import type {Kind,Listing} from '@/lib/catalog';
 export type LiveListing=Listing & {publicId:string;rawType:VezakuListing['content_type']};
 export function kindOf(item:VezakuListing):Kind {
  if(item.content_type==='course')return 'courses';
+ if(item.content_type==='article')return 'projects';
  if(item.tags?.some(t=>['project','projects','engineering-project'].includes(t.toLowerCase())))return 'projects';
  return 'products';
 }
