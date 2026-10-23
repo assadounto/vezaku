@@ -1,0 +1,1 @@
+'use client';import {useRouter} from 'next/navigation';import {LogOut} from 'lucide-react';export function DashboardSignout(){const router=useRouter();return <button className="dash-signout" onClick={async()=>{await fetch('/api/auth/logout',{method:'POST'});router.replace('/login');router.refresh()}}><LogOut size={17}/> Sign out</button>}
