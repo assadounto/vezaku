@@ -14,3 +14,18 @@ export async function getVezakuListings(contentType?:VezakuListing['content_type
   return {items:items as VezakuListing[],configured:true,error:null};
  }catch{return {items:[] as VezakuListing[],configured:true,error:'Catalogue temporarily unavailable'}}
 }
+
+
+/** Fetch a single published listing by its public UUID; verify shop ownership even for direct links. */
+export async function getVezakuListingById(id:string):Promise<VezakuListing|null>{
+ const shopId=process.env.VEZAKU_SHOP_ID;
+ if(!shopId||!/^[1-9][0-9]*$/.test(shopId)||!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(id))return null;
+ const base=(process.env.XONBAY_API_URL||'https://api.xonbay.com').replace(/\/$/,'');
+ try{
+  const res=await fetch(base+'/v1/public_digital_listings/'+encodeURIComponent(id),{cache:'no-store'});
+  if(!res.ok)return null;
+  const item=await res.json() as VezakuListing;
+  if(String(item.shop?.id)!==shopId||item.shop?.subdomain!=='vezaku'||item.public_id?.toLowerCase()!==id.toLowerCase())return null;
+  return item;
+ }catch{return null}
+}
