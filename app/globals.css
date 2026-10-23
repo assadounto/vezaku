@@ -347,3 +347,6 @@ button:disabled{cursor:not-allowed}
 @media(prefers-reduced-motion:reduce){
  :where(.course-card,.digital-card,.dash-stats>div,.btn,.nav-button,.dash-explore,.listing-image img){transition:none!important;transform:none!important}
 }
+
+.skip-to-content{position:fixed;left:16px;top:12px;z-index:1000;padding:12px 18px;border-radius:10px;background:#fff;color:#3026a0;box-shadow:0 8px 28px #0003;transform:translateY(-160%)}
+.skip-to-content:focus{transform:translateY(0)}
