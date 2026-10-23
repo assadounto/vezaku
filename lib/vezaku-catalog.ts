@@ -1,4 +1,4 @@
-import {getVezakuListings,type VezakuListing} from '@/lib/vezaku-digital-listings';
+import {getVezakuListings,getVezakuListingById,type VezakuListing} from '@/lib/vezaku-digital-listings';
 import type {Kind,Listing} from '@/lib/catalog';
 export type LiveListing=Listing & {publicId:string;rawType:VezakuListing['content_type']};
 export function kindOf(item:VezakuListing):Kind {
@@ -18,7 +18,7 @@ export async function getLiveCatalogue(kind:Kind) {
  return {...result,items:result.items.map(mapListing).filter(x=>x.kind===kind)};
 }
 export async function getLiveListing(kind:Kind,id:string) {
- if(!/^[a-f0-9-]{36}$/i.test(id))return null;
- const result=await getLiveCatalogue(kind);
- return result.items.find(x=>x.publicId===id)||null;
+ const raw=await getVezakuListingById(id);
+ if(!raw||kindOf(raw)!==kind)return null;
+ return mapListing(raw);
 }
