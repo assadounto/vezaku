@@ -23,9 +23,9 @@ export async function getVezakuListingById(id:string):Promise<VezakuListing|null
  const base=(process.env.XONBAY_API_URL||'https://api.xonbay.com').replace(/\/$/,'');
  try{
   const res=await fetch(base+'/v1/public_digital_listings/'+encodeURIComponent(id),{cache:'no-store'});
-  if(!res.ok)return null;
+  if(!res.ok){console.warn('[VEZAKU detail] Xonbay listing fetch failed',{listingId:id,status:res.status});return null;}
   const item=await res.json() as VezakuListing;
-  if(String(item.shop?.id)!==shopId||item.shop?.subdomain!=='vezaku'||item.public_id?.toLowerCase()!==id.toLowerCase())return null;
+  if(String(item.shop?.id)!==shopId||item.shop?.subdomain!=='vezaku'||item.public_id?.toLowerCase()!==id.toLowerCase()){console.warn('[VEZAKU detail] Listing did not match configured VEZAKU shop',{listingId:id,receivedShopId:item.shop?.id,receivedSubdomain:item.shop?.subdomain});return null;}
   return item;
- }catch{return null}
+ }catch(error){console.error('[VEZAKU detail] Listing fetch error',error);return null}
 }
